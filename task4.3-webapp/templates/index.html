@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>{{ title }}</h1>
+    <p class="meta">Container host: <code>{{ hostname }}</code> &middot; Server time: {{ now }}</p>
+
+    <form action="{{ url_for('add_task') }}" method="post" class="add-form">
+      <input type="text" name="text" placeholder="Add a new task..." required>
+      <button type="submit">Add</button>
+    </form>
+
+    <ul class="task-list">
+      {% for task in tasks %}
+      <li class="{{ 'done' if task.done else '' }}">
+        <form action="{{ url_for('toggle_task', task_id=task.id) }}" method="post">
+          <button type="submit" class="toggle">{{ '✔' if task.done else '○' }}</button>
+        </form>
+        <span>{{ task.text }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <footer>SWE40006 Deployment Task 4.3 &mdash; Custom Web Application in Docker</footer>
+  </main>
+</body>
+</html>

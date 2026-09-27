@@ -1,0 +1,9 @@
+Docker is a platform that allows you to package an application with all of its
+dependencies into a standardized unit called a container. Containers make it
+easy to build, ship, and run applications consistently across different
+environments. Docker containers are lightweight, fast, and portable, unlike
+traditional virtual machines. With Docker, developers can containerize an
+application once and run that same container on a laptop, a test server, or
+in production, without worrying about differences in the underlying
+infrastructure. This consistency is one of the main reasons Docker has become
+such a popular tool for modern software deployment and DevOps workflows.
